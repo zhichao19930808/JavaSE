@@ -14,6 +14,6 @@ package Package;//打包语句 必须放在代码第一行 （前边可以有注
  * FQN - Full Qualified Name 全限定名
  */
 public class Package {//package 包裹
-    //点击左上（圆圈）的 纵向 第一个选项是否层次 第二个选项是否重叠包
+    //点击左上设置按钮（齿轮）的 纵向 第一个选项是否层次 第二个选项是否重叠包
 
 }
