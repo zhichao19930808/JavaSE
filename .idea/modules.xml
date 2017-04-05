@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/JavaSE.iml" filepath="$PROJECT_DIR$/.idea/modules/JavaSE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JavaSE_main.iml" filepath="$PROJECT_DIR$/.idea/modules/JavaSE_main.iml" group="JavaSE" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JavaSE_test.iml" filepath="$PROJECT_DIR$/.idea/modules/JavaSE_test.iml" group="JavaSE" />
     </modules>
   </component>
 </project>
