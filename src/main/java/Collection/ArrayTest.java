@@ -11,6 +11,7 @@ public class ArrayTest {
         for (int i = 0; i < ints.length; i++) {
             ints[i] = i;
         }
+
         // itar = iterate array + Tab
         for (int i = 0; i < ints.length; i++) {
             if (i == 5) {
