@@ -8,7 +8,7 @@ public class StringBufferDemo {
         StringBuffer stringBuffer = new StringBuffer("hello");
         stringBuffer.append(" world");
         System.out.println(stringBuffer);
-        System.out.println(stringBuffer.delete(5, 6));// Ctrl + Q / Ctrl + J
+        System.out.println(stringBuffer.delete(5, 6));// Ctrl + Q / Ctrl + J 查看文档
         System.out.println(stringBuffer.insert(5, ", ")); // offset 偏移量
         System.out.println(stringBuffer.insert(stringBuffer.length(), '!')); // offset 偏移量
         System.out.println(stringBuffer.reverse()); // 逆序
