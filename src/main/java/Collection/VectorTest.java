@@ -13,11 +13,13 @@ public class VectorTest {
         for (int i = 0; i < 10; i++) {
             strings.add("hi");
         }
-        strings.clear();//
+      //  strings.clear();//
         strings.add("hello");
         System.out.println(strings.size());
         System.out.println(strings.get(0));
         System.out.println(strings.capacity()); // capacity 容量
+        strings.remove(7);
+        System.out.println(strings.get(7));
 
 
     }
