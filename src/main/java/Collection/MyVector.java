@@ -3,6 +3,7 @@ package Collection;
 /**
  * Created by Administrator on 2017/4/8.
  */
+
 public class MyVector {
 
     private static final int DEFAULT_CAPACITY = 10;
