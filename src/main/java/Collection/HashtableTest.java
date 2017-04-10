@@ -7,6 +7,7 @@ import java.util.Map;
 
 /**
  * Created by Administrator on 2017/4/10.
+ * chapter 4、哈希表 Hastable
  */
 public class HashtableTest {// hashtable 散列表
     public static void main (String[]args) {
