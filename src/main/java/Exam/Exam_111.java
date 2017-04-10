@@ -4,7 +4,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /**
- * Created by Administrator on 2017/4/8.
+ * Created by Administrator
+ * ++on 2017/4/8.
  * 接受用户输入的一个字符串，将其每个字节的数据相加求和输出
  */
 public class Exam_111 {
