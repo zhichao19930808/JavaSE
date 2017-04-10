@@ -19,7 +19,12 @@ public class HashtableTest {// hashtable 散列表
         for (Integer integer : hashtable.keySet()) {//------------key 键； 循环输出所有的键
             System.out.println(integer+"、"+hashtable.get(integer));
         }
+        hashtable.remove(2);//------------------------------remove 消除;
         System.out.println(hashtable.clone());//------------------clone 克隆；复制;  输出全部
+        System.out.println(hashtable.toString());//---------------效果同克隆
+        System.out.println(hashtable.containsKey(5));//-----contains 包含；  查询是否包含某键，返回true或false；
+        System.out.println(hashtable.containsValue("haha"));//-----contains 包含；  查询是否包含某值，返回true或false；
+        System.out.println(hashtable.contains("haha"));//-----contains 包含； 效果同containsValue；查询是否包含某值，返回true或false；推荐使用containsValue,因为containsValue更准确。
         for (String s : hashtable.values()) {//-------------------value 值；  循环输出所有的值
             System.out.println(s);
         }
