@@ -39,7 +39,7 @@ public class ArrayListTest {
         System.out.println("(contains)---------------------------------------------------------------------------------------");
         System.out.println(strings.contains("hi1"));//如果此列表中包含指定的元素，则返回 true。
         System.out.println("(containsAll)---------------------------------------------------------------------------------------");
-        System.out.println(strings.containsAll(strings));//如果此 collection 包含指定 collection 中的所有元素，则返回 true。
+        System.out.println(strings.containsAll(strings));//如果此 collection 包含指定 collection 中的所有元素，则返回 true
         System.out.println("indexOf---------------------------------------------------------------------------------------------");
         System.out.println(strings.indexOf("test1"));// 返回此列表中首次出现的指定元素的索引，或如果此列表不包含元素，则返回 -1。
         System.out.println("isEmpty-----------------------------------------------------------------------------------------------");
