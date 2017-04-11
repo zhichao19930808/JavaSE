@@ -23,7 +23,7 @@ public class HashSetTest {
 
 //        ArrayList
 
-        System.out.println("size:"+strings.size());
+        System.out.println("size:"+strings.size());//结果无序
         for (String string : strings) {
             System.out.println(string);
         }
