@@ -17,7 +17,7 @@ public class LinkedHashSetTest {
     strings.add("d");
     strings.add("c");
 
-        System.out.println("size:"+strings.size());
+        System.out.println("size:"+strings.size());//a b d c
         for (String string : strings) {
             System.out.println(string);
         }
