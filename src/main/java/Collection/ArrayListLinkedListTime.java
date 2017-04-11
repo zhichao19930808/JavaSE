@@ -12,18 +12,28 @@ public class ArrayListLinkedListTime {
         ArrayList<String> arrayList = new ArrayList<>();
         LinkedList<String> linkedList = new LinkedList<>();
 
+        long m1 = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();//比较占用内存大小
+        System.out.println(m1);
         for (int i = 0; i < 10000000; i++) {
-            arrayList.add(i + "");
-            linkedList.add(i + "");
+//            arrayList.add(i + ""); // 600 M
+            linkedList.add(i + ""); // 760 M
         }
+        long m2 = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        System.out.println(m2);
 
-        long time1 = System.currentTimeMillis();
-        System.out.println(arrayList.remove(10000000 - 1));//分别尝试添加、删除、查找功能
-        long time2 = System.currentTimeMillis();
-        System.out.println(linkedList.remove(10000000 - 1));
-        long time3 = System.currentTimeMillis();
 
-        System.out.println("arrayList: " + (time2 - time1)); // arrayList
-        System.out.println("linkedList: " + (time3 - time2)); // linkedList
+//        for (int i = 0; i < 10000000; i++) {
+//            arrayList.add(i + "");
+//            linkedList.add(i + "");
+//        }
+//
+//        long time1 = System.currentTimeMillis();
+//        System.out.println(arrayList.remove(10000000 - 1));//分别尝试添加、删除、查找功能
+//        long time2 = System.currentTimeMillis();
+//        System.out.println(linkedList.remove(10000000 - 1));
+//        long time3 = System.currentTimeMillis();
+//
+//        System.out.println("arrayList: " + (time2 - time1)); // arrayList
+//        System.out.println("linkedList: " + (time3 - time2)); // linkedList
     }
 }
