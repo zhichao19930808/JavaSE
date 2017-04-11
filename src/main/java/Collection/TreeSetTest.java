@@ -4,12 +4,13 @@ import java.util.TreeSet;
 
 /**
  * Created by Administrator on 2017/4/11.
+ * TreeSet
  */
 public class TreeSetTest {
     /*
     * TreeSet:
     * 使用 红-黑 树 存储元素
-    *按元素值排序
+    *按元素值排序。
     * */
     public static void main(String[] args) {
         TreeSet<String>strings=new TreeSet<>();
