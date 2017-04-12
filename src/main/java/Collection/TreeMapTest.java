@@ -20,3 +20,11 @@ public class TreeMapTest {
             System.out.println(entry.getKey()+"、"+entry.getValue());        }
     }
 }
+/*
+k-v
+
+hashtable 键和值不能为空
+hashmap 键和值都能为空
+linkedmap 键和值都能为空
+treeMap 值可为空，键不能为空
+*/
