@@ -1,6 +1,7 @@
 package Collection;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2017/4/12.
@@ -21,6 +22,9 @@ public class HashMapTest {
         }
         for (String s : map.values()) {
             System.out.println(s);
+        }
+        for (Map.Entry<Integer, String> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + ">" + entry.getValue());
         }
 
     }
