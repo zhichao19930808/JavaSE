@@ -2,6 +2,7 @@ package Exceptional;
 
 /**
  * Created by Administrator on 2017/4/17.
+ * 常见异常
  */
 public class Exceptional {
     public static void main(String[] args) {
