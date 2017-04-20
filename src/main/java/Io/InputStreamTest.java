@@ -14,7 +14,7 @@ public class InputStreamTest {
         InputStream inputStream=null;
         //shift+enter 快速跳出本行并另起一行
         try {//shift+ctrl+箭头 一个单词一个单词的选择
-            inputStream = new FileInputStream("test ");//绝对路径
+            inputStream = new FileInputStream("test ");//这个类所有的方法都声明了首检异常
             int i;
             while ((i = inputStream.read()) != -1) {
                 System.out.print((char)i);
