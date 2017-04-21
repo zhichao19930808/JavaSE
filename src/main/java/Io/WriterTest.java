@@ -10,9 +10,12 @@ import java.io.Writer;
  */
 public class WriterTest {
     public static void main(String[] args) {
+        //写入字符流的抽象类。子类必须实现的方法仅有 write(char[], int, int)、flush() 和 close()。
+        // 但是，多数子类将重写此处定义的一些方法，以提供更高的效率和/或其他功能。
         Writer writer = null;
         try {
-            writer = new FileWriter("new");
+            writer = new FileWriter("new");//FileWriter 用来写入字符文件的便捷类。
+            // 此类的构造方法假定默认字符编码和默认字节缓冲区大小都是可接受的。要自己指定这些值，可以先在 FileOutputStream 上构造一个 OutputStreamWriter。
             writer.write(Integer.parseInt("4e00", 16));//一
 //            writer.write(0x4e01);//丁
             // 0b1111_1111_0000 b binary 二进制
