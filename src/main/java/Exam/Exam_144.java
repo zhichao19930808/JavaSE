@@ -1,12 +1,6 @@
 package Exam;
-
-import javafx.beans.binding.IntegerBinding;
-
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
-
 /**
  * Created by Administrator on 2017/4/22.
  * 编写一个程序实现以下功能:
@@ -23,7 +17,7 @@ public class Exam_144 {
             for (int j = 0; j < 5000; j++) {
                 i = random.nextInt(10000);
                 while (i == 0) {
-                    random.nextInt(10000);
+                    i=random.nextInt(10000);
                 }
                 bufferedWriter.write(String.valueOf(i));
                 bufferedWriter.newLine();
