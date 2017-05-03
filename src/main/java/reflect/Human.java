@@ -93,6 +93,7 @@ class HumanTest {
         for (Field field : fields) {
             System.out.println(field.getName());//getName()返回此 Field 对象表示的字段的名称。
         }
+        //getDeclaredFields()返回 Field 对象的一个数组，这些对象反映此 Class 对象所表示的类或接口所声明的所有字段。
         Field[] declaredFields = clazz.getDeclaredFields(); // declared 宣布\ [dɪ'kleəd] 声明
         System.out.println("--- getDeclaredFields() ---");
         for (Field declaredField : declaredFields) {
