@@ -4,7 +4,8 @@ import java.lang.reflect.Field;
 
 /**
  * Created by Administrator on 2017/5/4.
- * 利用反射机制，尝试获取一个私有的域的值
+ * 1.利用反射机制，尝试获取一个私有的域的值
+ * 2.尝试改变该域的值
  */
  class Test {
     private int age;
@@ -18,6 +19,8 @@ class test1 {
         Test test = new Test(29);
         Field age = Class.forName("reflect.Test").getDeclaredField("age");
         age.setAccessible(true);
+        System.out.println(age.get(test));
+        age.setInt(test,age.getInt(test)+1);
         System.out.println(age.get(test));
     }
 }
