@@ -9,6 +9,6 @@ public class Test {
 //        Servace servace = new Servace(new floppyWriter());
         Servace servace =new Servace();
         servace.setDeviceWriter(new floppyWriter());
-        servace.wript();
+        servace.write();
     }
 }
