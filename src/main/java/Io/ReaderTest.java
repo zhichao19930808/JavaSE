@@ -13,7 +13,7 @@ public class ReaderTest {
     // 但是，多数子类将重写此处定义的一些方法，以提供更高的效率和/或其他功能。
     public static void main(String[] args) {
         //JDK 7以上
-        try (Reader reader = new FileReader("test")) {//FileReader 用来读取字符文件的便捷类。
+        try (Reader reader = new FileReader("config.properties")) {//FileReader 用来读取字符文件的便捷类。
                                                                  // 此类的构造方法假定默认字符编码和默认字节缓冲区大小都是适当的。
                                                                   // 要自己指定这些值，可以先在 FileInputStream 上构造一个 InputStreamReader。
             int i;
@@ -26,7 +26,7 @@ public class ReaderTest {
         /*  JDK 7以下
                 Reader reader = null;
                 try {
-                    reader = new FileReader("test");
+                    reader = new FileReader("config.properties");
                     int i;
                     while ((i = reader.read()) != -1) {
                         System.out.print((char) i);

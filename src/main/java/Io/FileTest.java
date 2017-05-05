@@ -13,7 +13,7 @@ import java.util.Date;
 public class FileTest {
     //file 文件和目录路径名的抽象表示形式
     public static void main(String[] args) {
-        File file = new File("E:/javaHome/JavaSE/test");//通过将给定路径名字符串转换为抽象路径名来创建一个新 File 实例。
+        File file = new File("E:/javaHome/JavaSE/config.properties");//通过将给定路径名字符串转换为抽象路径名来创建一个新 File 实例。
         System.out.println(file.isFile());//true  测试此抽象路径名表示的文件是否是一个标准文件。
         System.out.println(file.isDirectory());//false   测试此抽象路径名表示的文件是否是一个目录。
         System.out.println(file.canExecute());//true  Execute 执行 测试应用程序是否可以执行此抽象路径名表示的文件。
@@ -23,9 +23,9 @@ public class FileTest {
         System.out.println("----------------------------------------------------");
         //file.delete();//删除此抽象路径名表示的文件或目录
         //file.deleteOnExit();// 在虚拟机终止时，请求删除此抽象路径名表示的文件或目录。
-        System.out.println(file.getAbsoluteFile()); //E:\javaHome\JavaSE\test 返回此抽象路径名的绝对路径名形式。
-        System.out.println(file.getAbsolutePath());//E:\javaHome\JavaSE\test  返回此抽象路径名的绝对路径名字符串
-        System.out.println(file.getName());//test  返回由此抽象路径名表示的文件或目录的名称。
+        System.out.println(file.getAbsoluteFile()); //E:\javaHome\JavaSE\config.properties 返回此抽象路径名的绝对路径名形式。
+        System.out.println(file.getAbsolutePath());//E:\javaHome\JavaSE\config.properties  返回此抽象路径名的绝对路径名字符串
+        System.out.println(file.getName());//config.properties  返回由此抽象路径名表示的文件或目录的名称。
         System.out.println(file.getParent());//javaHome\JavaSE  返回此抽象路径名父目录的路径名字符串；如果此路径名没有指定父目录，则返回 null。
         System.out.println(file.getParentFile());//javaHome\JavaSE  返回此抽象路径名父目录的抽象路径名；如果此路径名没有指定父目录，则返回 null。
         System.out.println("------------------------------------------------------");

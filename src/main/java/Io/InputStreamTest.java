@@ -16,7 +16,7 @@ public class InputStreamTest {
         InputStream inputStream=null;
         //shift+enter 快速跳出本行并另起一行
         try {//shift+ctrl+箭头 一个单词一个单词的选择
-            inputStream = new FileInputStream("test ");//这个类所有的方法都声明了首检异常
+            inputStream = new FileInputStream("config.properties ");//这个类所有的方法都声明了首检异常
                                                                 //FileInputStream 从文件系统中的test文件中获得输入字节。哪些文件可用取决于主机环境。
             int i;
             while ((i = inputStream.read()) != -1) {
