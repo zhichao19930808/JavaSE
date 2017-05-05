@@ -19,7 +19,7 @@ public class Servace {
         this.deviceWriter = deviceWriter;
     }
 
-    public void wript() {
+    public void write() {
         deviceWriter.writerToDevice();
     }
 }
