@@ -38,7 +38,7 @@ public class SwitchTest {
             case 7:
                 System.out.println("中等");
                 break;
-            case 60:
+            case 6:
                 System.out.println("及格");
                 break;
                 default:
