@@ -13,10 +13,25 @@ public class SubThread extends Thread {
             System.out.println(i);
         }
     }
-
     public static void main(String[] args) {
         SubThread subThread = new SubThread();
+//        subThread.run();
         subThread.start();
         System.out.println("test...");
     }
 }
+/*
+Thread lifecycle
+
+新建 New
+就绪 Runnable
+运行 Running
+阻塞 Blocked
+等待阻塞 Waiting
+同步阻塞 Blocked on synchronization
+其他阻塞
+I/O
+Sleep
+Join
+死亡 Dead
+ */
