@@ -5,6 +5,7 @@ import java.util.Set;
 
 /**
  * Created by Administrator on 2017/4/11.
+ * HashSetTest
  */
 public class HashSetTest {
     /*
@@ -18,7 +19,7 @@ public class HashSetTest {
         HashSet<String> strings = new HashSet<>();
         strings.add("hello");
         strings.add("hi");
-        strings.add("test");
+        strings.add("config.properties");
         strings.add("Test");
 
 //        ArrayList
