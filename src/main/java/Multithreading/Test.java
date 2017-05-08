@@ -2,20 +2,21 @@ package Multithreading;
 
 /**
  * Created by Administrator on 2017/5/8.
- * 创建新线程的方法1：将类声明为 Thread 的子类。该子类应重写 Thread 类的 run 方法。
+ * 创建线程的另一种方法是声明实现 Runnable 接口的类。该类然后实现 run 方法。
+ * 然后可以分配该类的实例，在创建 Thread 时作为一个参数来传递并启动。采用这种风格的同一个例子如下所示：
  */
-public class Test implements Runnable{
+public class Test implements Runnable{//(1)声明实现 Runnable 接口的类
     @Override
-    public void run() {
+    public void run() {//(2)然后实现 run 方法。
         for (int i = 0; i <10; i++) {
             System.out.println(i);
         }
     }
 
     public static void main(String[] args) {
-        Test test = new Test();
+        Test test = new Test();//(3)分配该类的实例
         //创建新执行线程有两种方法。一种方法是将类声明为 Thread 的子类。该子类应重写 Thread 类的 run 方法。
-        Thread thread = new Thread(test);
+        Thread thread = new Thread(test);//(4)在创建 Thread 时作为一个参数来传递并启动。
         thread.start();//使该线程开始执行；Java 虚拟机调用该线程的 run 方法。
         System.out.println("test...");
     }
