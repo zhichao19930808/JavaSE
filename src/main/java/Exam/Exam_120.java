@@ -26,9 +26,9 @@ public class Exam_120 {
             }
         } else {
             if (y <= -5) {
-                z = (int) x-1;
+                z = (int) x;
             } else {
-                z = (int)x;
+                z = (int)x-1;
             }
 
         }
