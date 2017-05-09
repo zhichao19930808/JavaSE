@@ -9,6 +9,7 @@ import java.io.IOException;
 
 /**
  * Created by Administrator on 2017/5/8.
+ * jSoup test
  */
 public class JSoupTest {
     public static void main(String[] args) throws IOException {
@@ -17,7 +18,7 @@ public class JSoupTest {
 //        System.out.println(document);
         Elements elements = document.select("img[class=lazy]");
         for (Element element : elements) {
-            System.out.println("http"+element.attr("data-original"));
+            System.out.println("http:"+element.attr("data-original"));
         }
     }
 }
