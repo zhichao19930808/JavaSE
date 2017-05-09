@@ -13,7 +13,7 @@ import java.io.IOException;
 
 /**
  * Created by Administrator on 2017/5/9.
- * 下载链家网东城地区的房价的行情
+ * 抓取链家网东城地区房价的行情
  */
 public class LianJia {
     //1.要下载的地址
@@ -67,9 +67,8 @@ public class LianJia {
      1.先把内层循环扩大一倍，把主方法变为page方法，参数接受 int类型的page
      2.将地址后面+pg 然后拿到方法外，作为一个常量
      3.重新做一个主方法
-     4.将定义的document提取到主方法中，并使document定义为域
-     5.获取东城地区的页码（总数/30）
-     6.使用for循环调用page方法，抓取整个东城地区多页的信息
+     4.获取东城地区的页码（总数/30）
+     5.使用for循环调用page方法，抓取整个东城地区多页的信息
      */
         } catch (IOException e) {
             e.printStackTrace();
