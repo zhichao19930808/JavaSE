@@ -3,8 +3,6 @@ package Tool;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.nodes.Node;
-import org.jsoup.nodes.TextNode;
 import org.jsoup.select.Elements;
 
 import java.io.BufferedWriter;
@@ -17,33 +15,52 @@ import java.io.IOException;
  */
 public class LianJia {
     //1.要下载的地址
-    private static final String url = "http://bj.lianjia.com/ershoufang/dongcheng/pg";
+
     private static int counter;
+/*
+10.抓取北京地区的房价行情
+    1.将内层循环扩大一倍，把主方法变为lj方法，参数为String类型的Url，删除常量URL
+    2.建立一个主方法，获取北京各个区的地址
+    3.使用lj方法抓取北京地区的房价
+ */
 
     public static void main(String[] args) throws IOException {
+//1.抓取地址
+        String url = "http://bj.lianjia.com/ershoufang/rs/";
+//2.关联抓取地址
         Document document = Jsoup.connect(url).cookie("lianjia_uuid", "3a4a801b-dbf8-4c15-b5a5-5599f2e77145").get();
+//3.获取北京地区各个区的地址
+        Elements elements = document.select("div[data-role=ershoufang]").first().select("a[href^=/ershoufang");
+        for (Element element : elements) {
+            String Url ="http://bj.lianjia.com/"+element.attr("href")+"pg";
+            System.out.println(Url);
+            lj(Url);
+        }
+    }
+    private static void lj(String Url ) throws IOException {
+        Document document = Jsoup.connect(Url).cookie("lianjia_uuid", "3a4a801b-dbf8-4c15-b5a5-5599f2e77145").get();
         int total=Integer.parseInt(document.select("h2[class=total fl]").first().child(0).text());
         int pages = (int) Math.ceil(total/30d);
         for (int i = 0; i < pages; i++) {
             System.out.println("page:"+(i+1));
-            page(i+1);
+            page(i+1,Url);
         }
 
     }
 
-    public static void page(int page){
+    private static void page(int page,String Url){
 //8.将抓取的内容存入到文件中
         try(
-                BufferedWriter writer = new BufferedWriter(new FileWriter("LianJia/dongCheng",true))
+                BufferedWriter writer = new BufferedWriter(new FileWriter("LianJia/beiJing",true))
                 ) {
 //2.关联JSoup工具
-//        Document document = Jsoup.connect(url).get();
+//        Document document = Jsoup.connect(Url).get();
   /*2.1
     多次访问导致数据异常，点击链家网给出的图片中的倒置图片发现浏览器已经可以访问。
     检查该网页，点击Notwork，查看下方name列表中的第一行内容的Cookies内容
     将对应的键：lianjia_uuid和值：3a4a801b-dbf8-4c15-b5a5-5599f2e77145写入cookie方法的参数中即可继续访问网页
   */
-            Document document = Jsoup.connect(url+page).cookie("lianjia_uuid","3a4a801b-dbf8-4c15-b5a5-5599f2e77145").get();
+            Document document = Jsoup.connect(Url +page).cookie("lianjia_uuid","3a4a801b-dbf8-4c15-b5a5-5599f2e77145").get();
 //3.获取该网页的"li[class=clear]"标签的内容,即每套房子的全部信息
             Elements elements = document.select("li[class=clear]");
 //        System.out.println(elements);
