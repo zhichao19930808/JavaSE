@@ -13,10 +13,19 @@ import java.io.IOException;
  * Created by Administrator on 2017/5/9.
  * 抓取链家网东城地区房价的行情
  */
-public class LianJia {
-    //1.要下载的地址
-
+public class LianJia implements Runnable{
     private static int counter;
+    private String Url;
+    private String area;
+
+    /*
+11.将程序设置为多线程
+    1.实现 Runnable线程
+    2.将bj方法变为run方法
+        2.1 将参数设置为域
+        2.2 创建构造方法
+        2.3 在for循环中创建实例，启动线程
+     */
 /*
 10.抓取北京地区的房价行情
     1.将内层循环扩大一倍，把主方法变为lj方法，参数为String类型的Url，删除常量URL
@@ -32,26 +41,39 @@ public class LianJia {
 //3.获取北京地区各个区的地址
         Elements elements = document.select("div[data-role=ershoufang]").first().select("a[href^=/ershoufang");
         for (Element element : elements) {
+            //抓取地区名称
             String Url ="http://bj.lianjia.com/"+element.attr("href")+"pg";
-            System.out.println(Url);
-            lj(Url);
+            String area = element.attr("href").replaceAll("(ershoufang|/)", "");
+            System.out.println("*********"+area+Url+"***********");
+            Thread thread = new Thread(new LianJia(Url,area));
+            thread.start();
         }
     }
-    private static void lj(String Url ) throws IOException {
-        Document document = Jsoup.connect(Url).cookie("lianjia_uuid", "3a4a801b-dbf8-4c15-b5a5-5599f2e77145").get();
-        int total=Integer.parseInt(document.select("h2[class=total fl]").first().child(0).text());
-        int pages = (int) Math.ceil(total/30d);
-        for (int i = 0; i < pages; i++) {
-            System.out.println("page:"+(i+1));
-            page(i+1,Url);
-        }
 
+    public LianJia(String Url, String area) {
+        this.Url = Url;
+        this.area = area;
     }
 
-    private static void page(int page,String Url){
+    @Override
+    public void run() {
+        try {
+            Document document = Jsoup.connect(Url).cookie("lianjia_uuid", "3a4a801b-dbf8-4c15-b5a5-5599f2e77145").get();
+            int total=Integer.parseInt(document.select("h2[class=total fl]").first().child(0).text());
+            int pages = (int) Math.ceil(total/30d);
+            for (int i = 0; i < pages; i++) {
+                System.out.println("地区："+area+"\tpage:"+(i+1));
+                page(i+1,Url,area);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void page(int page,String Url,String area){
 //8.将抓取的内容存入到文件中
         try(
-                BufferedWriter writer = new BufferedWriter(new FileWriter("LianJia/beiJing",true))
+                BufferedWriter writer = new BufferedWriter(new FileWriter("LianJia/beiJing"+area,true))
                 ) {
 //2.关联JSoup工具
 //        Document document = Jsoup.connect(Url).get();
@@ -65,6 +87,9 @@ public class LianJia {
             Elements elements = document.select("li[class=clear]");
 //        System.out.println(elements);
             for (Element element : elements) {
+//修改：获取房子的id
+                String imageUrl = element.childNode(0).attr("href");
+                String id = imageUrl.substring(imageUrl.lastIndexOf("/") + 1, imageUrl.lastIndexOf("."));
 //4.利用迭代的方法取出每个li标签中第一个"a[data-el=region]"标签中的文本内容，即小区名称；
                 String region = element.select("a[data-el=region]").first().text();//region ['riːdʒən]地区
 //5.利用迭代的方法取出每个li标签中第一个"div[class=totalPrice]"标签中的文本内容，即总价
@@ -76,7 +101,7 @@ public class LianJia {
 //7.利用迭代的方法取出每个li标签中第一个"div[class=unitPrice]"标签，使用attr方法取得他对应域"data-price"属性的一个值
                 String unitPrice = element.select("div[class=unitPrice]").first().attr("data-price");
 //                System.out.println("小区：" + region + "\n详情：" + houseInfo + "\t单价:" + unitPrice + "\t总价：" + totalPrice);
-                writer.write(region+"#"+houseInfo+"#"+unitPrice+"#"+totalPrice+"\n");
+                writer.write(id+"#"+region+"#"+houseInfo+"#"+unitPrice+"#"+totalPrice+"\n");
                 System.out.println("\t"+"counter"+ ++counter);
             }
 //9.原先是抓取一页的信息，现在尝试抓取整个东城地区多页的信息
@@ -91,4 +116,6 @@ public class LianJia {
             e.printStackTrace();
         }
     }
+
+
 }
