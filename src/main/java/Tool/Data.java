@@ -67,6 +67,7 @@ public class Data {
                 System.out.println("---总价：---");
                 System.out.println(fileName+" min:"+list.get(0));
                 System.out.println(fileName+" max:"+list.get(list.size()-1));
+
                 Double sum = 0d;
                 for (Double aDouble : list) {
                     sum += aDouble;
