@@ -4,13 +4,11 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by Administrator on 2017/5/12.
+ * 对抓取的信息进行简单的分析
  */
 public class Data {
     /*
@@ -22,7 +20,8 @@ public class Data {
     6.由于怀柔没有在售房源，此处对其进行积极处理（catch一下）
     7.由于怀柔没有在售房源，手动将index.html文件中的怀柔删除；
     准备工作就绪，开始对数据进行分析
-    1.将Set的泛型变为Double类型，使用字符串“#”拆分line字符串，并使用parse方法将其转化为double类型，add到set中；
+    1.将Set的中的数据存入到arrayList中，使用工具类Collections.sort(list);对list进行排序；
+    2.找到最大值，最小值，平均值
 
      */
     private static final String[] fileNames = {
@@ -56,26 +55,29 @@ public class Data {
             ) {
                 String line;
                 while ((line = reader.readLine()) != null) {
+//                    System.out.println(line);
                     set.add(line);
                     counter++;
                 }
+
                 for (String s : set) {
-                    list.add(Double.parseDouble(s.split("#")[5]));
+                    list.add(Double.parseDouble(s.split("#")[4]));
                 }
+                Collections.sort(list);
+                System.out.println("---总价：---");
+                System.out.println(fileName+" min:"+list.get(0));
+                System.out.println(fileName+" max:"+list.get(list.size()-1));
+                Double sum = 0d;
+                for (Double aDouble : list) {
+                    sum += aDouble;
+                }
+                System.out.println(fileName+" avg:"+sum/list.get(0));
             }catch (FileNotFoundException e) {
                 System.err.println(fileName+"未找到");
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            }
         }
-        System.out.println("counter"+counter);
-        System.out.println(set.size());
-        /*
-        结果：
-        beiJinghuairou未找到
-        counter26343
-        20701
-         */
+        System.out.println("数量"+counter);
     }
 }
