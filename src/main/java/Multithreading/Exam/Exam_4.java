@@ -1,4 +1,4 @@
-package Multithreading;
+package Multithreading.Exam;
 
 /**
  * Created by Administrator on 2017/5/13.
