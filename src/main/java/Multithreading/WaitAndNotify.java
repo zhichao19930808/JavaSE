@@ -22,6 +22,11 @@ package Multithreading;
         this.notify();
         System.out.println(Thread.currentThread().getName()+" is end to notify");
     }
+    synchronized void notifyAllTest() {
+        System.out.println(Thread.currentThread().getName()+" is start to notifyAll");
+        this.notifyAll();
+        System.out.println(Thread.currentThread().getName()+" is end to notifyAll");
+    }
 }
 
 
@@ -30,7 +35,7 @@ class WaitTest implements Runnable{
     @Override
     public void run() {
         if (Thread.currentThread().getName().endsWith("3")) {
-            hehe.notifyTest();
+            hehe.notifyAllTest();
             return;
         }
         hehe.waitTest();
