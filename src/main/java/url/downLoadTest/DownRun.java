@@ -1,4 +1,4 @@
-package url;
+package url.downLoadTest;
 
 public class DownRun implements Runnable{
     private String address;
