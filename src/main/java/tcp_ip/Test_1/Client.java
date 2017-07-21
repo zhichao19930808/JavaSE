@@ -1,4 +1,4 @@
-package serverAndclient.Test_1;
+package tcp_ip.Test_1;
 
 import java.io.DataOutputStream;
 import java.io.IOException;

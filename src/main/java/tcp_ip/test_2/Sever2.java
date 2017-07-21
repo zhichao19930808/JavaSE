@@ -1,4 +1,4 @@
-package serverAndclient.test_2;
+package tcp_ip.test_2;
 
 import java.io.IOException;
 import java.net.ServerSocket;
